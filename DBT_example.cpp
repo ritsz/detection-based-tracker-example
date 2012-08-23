@@ -29,9 +29,7 @@ vector< Rect_<int> > faces;
 int main( int argc,char* argv[])
 {
 
-    // DetectionBasedTracker is a derived class from class Algorithm
-    // Algorithm is a new data structure that was released with OpenCV2.4
-    // The header files inside opencv2/contrib are for programs that have been contributed or are experimental
+     // The header files inside opencv2/contrib are for programs that have been contributed or are experimental
 
     // Declare the parameters that are needed for the tracker to run;
     // All the parameters are mostly the same that you use for haar cascades.
