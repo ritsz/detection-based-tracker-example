@@ -53,41 +53,26 @@ int main( int argc,char* argv[])
 	cv::setWindowProperty("Detection Based Tracker", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 
     	for (;;) {
-
         	cap>>img;
         	cv::cvtColor(img,gray,CV_RGB2GRAY);
-
 		 // The class object is run on a gray image.
-
         	obj.process(gray);
-
         	// The results are a vector of Rect that enclose the object being tracked
         	obj.getObjects(faces);
-
        		// if(faces.size() == 0) obj.resetTracking();
-
         	for (int i = 0; i < faces.size(); i++) {
             	face_i = faces[i];
-
             	// Make a rectangle around the detected object
-
             	rectangle(img, face_i, CV_RGB(0, 255,0), 3);
-
             	string box_text = format("Tracked Area");
-
             	int pos_x = std::max(face_i.tl().x - 10, 0);
             	int pos_y = std::max(face_i.tl().y - 10, 0);
             	// And now put it into the image:
             	putText(img, box_text, Point(pos_x, pos_y), FONT_HERSHEY_SIMPLEX, 1.0, CV_RGB(0,255,0), 2.0);
-
-         	}
-
+       	}
     		cv::imshow("Detection Based Tracker",img);      // Show the results.
-	
 		if(cv::waitKey(33) == 27) break;
-
     	}
-
     	obj.stop();
 	return 0;
 }
